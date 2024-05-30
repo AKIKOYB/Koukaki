@@ -24,3 +24,14 @@ window.addEventListener('scroll', function() {
   
   bannerTitle.style.transform = `translate(-50%, calc(-50% + ${scrollPosition * 0.5}px))`;
 });
+
+/*'.'.'.'.'.'.'.'.'*/
+ /*   BURGER MENU   */
+ /*'.'.'.'.'.'.'.'.'*/
+
+ const navigation = document.getElementById("site-navigation")
+ const burgerMenu = document.getElementById("icons")
+
+ burgerMenu.addEventListener("click", () => {
+     navigation.classList.toggle("open");            // toggle => ajoute la classe quand elle n'y est pas.
+ })  

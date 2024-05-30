@@ -1,17 +1,323 @@
-/* Error: Can't find stylesheet to import.
- *     ,
- * 117 |   @import '../../foce/sass/abstracts/variables/_colors.scss';
- *     |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *     '
- *   sass\layouts\_front-page.scss 117:11  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a     \2577 \a 117 \2502    @import '../../foce/sass/abstracts/variables/_colors.scss';\a     \2502            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a     \2575 \a   sass\\layouts\\_front-page.scss 117:11  root stylesheet";
+@charset "UTF-8";
+/*'.'.'.'.'.'.*/
+/*  BANNIERE  */
+/*'.'.'.'.'.'.*/
+.banner {
+  background-image: none;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
 }
+.banner img {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.banner__video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.banner__logo {
+  position: sticky;
+  top: 80px;
+  width: 50% !important;
+  margin-top: -10% !important;
+  z-index: 2;
+  animation: up 1500ms 300ms forwards, float 12s 1.8s infinite ease-in-out;
+}
+.banner__background {
+  position: absolute;
+  z-index: -2;
+}
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .banner {
+    min-height: 575px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .banner__video {
+    display: none;
+    z-index: -100;
+  }
+}
+/*'.'.'.'.'.'.*/
+/*  BANNIERE  */
+/*'.'.'.'.'.'.
+
+/*adding video start */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: translateZ(-1px) scale(2);
+}
+.video-container .banner-video,
+.video-container .fallback-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+}
+.video-container .fallback-image {
+  display: none;
+}
+@media (max-width: 768px) {
+  .video-container .banner-video {
+    display: none;
+  }
+  .video-container .fallback-image {
+    display: block;
+  }
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  transform: translateZ(0.5px) scale(0.8);
+}
+
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* adding end */
+/*turning flowers start 
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+// Styles for turning flowers
+.story h2::after {
+  content: url('foce-child\assets\images\sunflower_leaves.png'); 
+  position: absolute;
+  left: 0.7em;
+  top: 6em;
+  animation: rotation 10s linear infinite; 
+}
+
+.story__article::after {
+  content: url('foce-child\assets\images\Hibiscus.png'); 
+  position: absolute;
+  left: calc(50% + 414px);
+  top: 2em;
+  animation: rotation 10s linear infinite; 
+}
+
+/*turning flowers end */
+.story {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*
+    h2{
+      &::before {
+        content: url('../../assets/images/sunflower_leaves.png');
+        position: absolute;
+        left: 0;
+        top: 1.8em;
+        z-index: -1;
+      }
+      &::after {
+        content: url('../../assets/images/Sunflower.png');
+        position: absolute;
+        left: 0.7em;
+        top: 6em;
+      }
+    }
+  */
+}
+.story__article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  font-size: 15px;
+  padding-bottom: 2em;
+  background-color: #FFF5E9;
+}
+.story__article::before {
+  content: url("./assets/images/hibiscus_leaves.png");
+  position: absolute;
+  left: 50%;
+  top: 8em;
+  z-index: -1;
+}
+.story__article::after {
+  content: url("./assets/images/Hibiscus.png");
+  position: absolute;
+  left: calc(50% + 414px);
+  top: 2em;
+}
+.story #characters {
+  margin: 6em;
+  display: flex;
+  text-align: center;
+}
+.story #characters h3 {
+  background-image: url("./assets/images/orange_characters_bg.png");
+}
+.story #characters div {
+  flex: 1;
+}
+.story #characters .other-characters {
+  display: flex;
+  flex-wrap: wrap;
+}
+.story #characters .other-characters figure {
+  width: 50%;
+  padding: 2% 10%;
+  margin: 0;
+}
+.story #place {
+  display: flex;
+  background-image: url("./assets/images/place_bg.png");
+  width: 100%;
+  min-height: 699px;
+  background-size: cover;
+}
+.story #place h3 {
+  background-image: url("./assets/images/orange_place_bg.png");
+  margin-bottom: -1em;
+}
+.story #place > div {
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 6em;
+}
+.story #place > div p {
+  padding-left: 5em;
+}
+
+#studio {
+  position: relative;
+  margin-top: 3em;
+}
+#studio h2 {
+  overflow: hidden;
+  background-image: url("./assets/images/purple_studio_bg.png");
+}
+#studio h2::before {
+  content: url("./assets/images/random_flower.png");
+  position: absolute;
+  left: -1em;
+  top: 0;
+}
+#studio h2::after {
+  content: url("./assets/images/flower.png");
+  position: absolute;
+  right: 1em;
+  top: 1.2em;
+}
+#studio > div {
+  display: flex;
+  justify-content: space-between;
+  width: 66.66%;
+  margin: auto;
+}
+#studio > div::before {
+  content: url("./assets/images/trple-leaf.png");
+  position: absolute;
+  left: calc(50% - 17.225px);
+  top: 40%;
+}
+#studio > div p {
+  width: 44.5%;
+}
+
+@media all and (max-width: 1192px) {
+  .story__article::before {
+    left: 40%;
+    top: 8em;
+  }
+  .story__article::after {
+    left: calc(40% + 414px);
+    top: 2em;
+  }
+}
+@media all and (max-width: 1040px) {
+  .story__article::before {
+    left: 33%;
+    top: 15em;
+  }
+  .story__article::after {
+    content: url("./assets/images/Hibiscus.png");
+    position: absolute;
+    left: calc(33% + 414px);
+    top: 9em;
+  }
+  .story #characters {
+    flex-direction: column;
+  }
+}
+@media all and (max-width: 920px) {
+  .story h2::before {
+    content: "";
+  }
+  .story h2::after {
+    content: "";
+  }
+  .story__article {
+    width: 80%;
+  }
+  .story__article::before {
+    content: "";
+  }
+  .story__article::after {
+    content: "";
+  }
+  .story #characters {
+    flex-direction: column;
+  }
+  .story #place > div {
+    margin: auto;
+    width: 75%;
+  }
+  #studio h2::after {
+    content: "";
+  }
+  #studio > div {
+    flex-direction: column;
+  }
+  #studio > div::before {
+    content: "";
+  }
+  #studio > div p {
+    width: 100%;
+  }
+}
+@media all and (max-width: 700px) {
+  #studio h2::before {
+    content: "";
+  }
+}
+
+/*# sourceMappingURL=front-page.css.map */

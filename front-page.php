@@ -5,12 +5,14 @@ get_header();
 
     <main id="primary" class="site-main">
         <section class="banner">
-        <div class="video-container">
-            <video autoplay muted loop class="banner-video">
-                <source src="<?php echo get_template_directory_uri() . '/assets/images/Studio+Koukaki-vidéo+header+sans+son+(1).mp4'; ?>" type="video/mp4">
+            <img class="banner__logo hidden" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+            <!-- Récupération de l'image de background, désactivée dans le CSS -->
+            <img class="banner__background move-down hidden" src="<?php echo get_template_directory_uri() . '/assets/images/banner.png'; ?>" alt="Arrière plan de couleur orange, avec des images de type cartoon de chats et de fleurs.">
+            <!-- Ajout de la vidéo -->
+            <video class="banner__video move-down hidden" autoplay loop muted>
+                <source src="<?php echo get_theme_file_uri() . '/assets/video/banner-video.mp4'; ?>">
             </video>
-            <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
-        </div>
+            <!-- Fin de l'ajout -->
         </section>
 
         <section id="story" class="story">
@@ -74,7 +76,7 @@ get_header();
             </section>
 
         <section id="oscars" class="fade-in">
-            <h3>Fleurs d’oranger & chats errants est nominé aux Oscars Short Film Animated de 2022 !</h2>
+            <h3>Fleurs d’oranger & chats errants est nominé aux Oscars Short Film Animated de 2022 !</h3>
         </section>
     </main><!-- #main -->
 

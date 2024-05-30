@@ -8,9 +8,9 @@
  Version: 0.1
  */
 
- @import url("sass/layouts/_front-page.css");
- 
- @keyframes fadeInAnimation {
+@import url('css/front-page.css');
+
+@keyframes fadeInAnimation {
     from {
         opacity: 0;
     }
@@ -118,7 +118,7 @@
     }
   }
 
-/*added during mentor session 16052024 */
+/*added during session 16052024 */
 .story h2 span {
     position: absolute;
     left: 2em;
