@@ -27,4 +27,12 @@ if ( get_stylesheet() !== get_template() ) {
         return get_option( 'theme_mods_' . get_template(), $default );
     } );
 }
+
+// Deregister the parent theme's front-page SCSS file
+function deregister_parent_theme_styles() {
+    // Use the identified handle if there's a specific one for front-page styles
+    wp_dequeue_style( 'foce-style' ); // Assuming 'foce-style' is the main handle used by the parent theme
+    wp_deregister_style( 'foce-style' );
+}
+add_action( 'wp_enqueue_scripts', 'deregister_parent_theme_styles', 20 );
 ?>

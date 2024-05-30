@@ -5,9 +5,9 @@ get_header();
 
     <main id="primary" class="site-main">
         <section class="banner">
-            <img class="banner__logo hidden" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+            <img class="banner__logo hidden" src="<?php echo  get_theme_file_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
             <!-- Récupération de l'image de background, désactivée dans le CSS -->
-            <img class="banner__background move-down hidden" src="<?php echo get_template_directory_uri() . '/assets/images/banner.png'; ?>" alt="Arrière plan de couleur orange, avec des images de type cartoon de chats et de fleurs.">
+            <img class="banner__background move-down hidden" src="<?php echo get_theme_file_uri() . '/assets/images/banner.png'; ?>" alt="Arrière plan de couleur orange, avec des images de type cartoon de chats et de fleurs.">
             <!-- Ajout de la vidéo -->
             <video class="banner__video move-down hidden" autoplay loop muted>
                 <source src="<?php echo get_theme_file_uri() . '/assets/video/banner-video.mp4'; ?>">
