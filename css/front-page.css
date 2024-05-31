@@ -43,9 +43,10 @@
     z-index: -100;
   }
 }
+
 /*'.'.'.'.'.'.*/
 /*  BANNIERE  */
-/*'.'.'.'.'.'.
+/*'.'.'.'.'.'.*/
 
 /*adding video start */
 .video-container {
@@ -89,7 +90,6 @@
   transform: translateZ(0.5px) scale(0.8);
 }
 
-
 /* Floating animation */
 @keyframes float {
   0%, 100% {
@@ -99,8 +99,11 @@
     transform: translateY(-10px);
   }
 }
-/* adding end */
-/*added during session 16052024 
+/*'.'.'.'.'.'.*/
+/*   TITLES   */
+/*'.'.'.'.'.'.*/
+/*h2 animation, added during session 16052024, not work yet
+
 .story h2 span {
   position: absolute;
   left: 2em;
@@ -113,7 +116,11 @@
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 */
-/*turning flowers start */
+
+/*'.'.'.'.'.'.*/
+/*   STORY   */
+/*'.'.'.'.'.'.*/
+
 @keyframes rotation {
   from {
       transform: rotate(0deg);
@@ -122,7 +129,6 @@
       transform: rotate(360deg);
   }
 }
-
 .story {
   position: relative;
   display: flex;
@@ -136,7 +142,6 @@
   top: 1.8em;
   z-index: -1;
 }
-
 .story h2::after {
   content: url('../assets/images/Sunflower.png');
   position: absolute;
@@ -159,48 +164,97 @@
   content: url("../assets/images/hibiscus_leaves.png");
   position: absolute;
   left: 50%;
-  top: 8em;
+  top: -4em;
   z-index: -1;
 }
 .story__article::after {
   content: url("../assets/images/Hibiscus.png");
   position: absolute;
   left: calc(50% + 414px);
-  top: 2em;
+  top: -8em;
   animation: rotation 10s linear infinite; 
 }
-.story #characters {
+
+/*'.'.'.'.'.'.*/
+/*  CHARACTER  */
+/*'.'.'.'.'.'.*/
+.characters {
   margin: 6em;
   display: flex;
+  flex-direction: column;
   text-align: center;
 }
-.story #characters h3 {
+.characters h3 {
   background-image: url("../assets/images/orange_characters_bg.png"); 
+  margin-right: auto;
 }
-.story #characters div {
+.characters div {
   flex: 1;
-}
-.story #characters .other-characters {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center; 
+  width: 100%;
 }
-.story #characters .other-characters figure {
-  width: 50%;
-  padding: 2% 10%;
-  margin: 0;
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
-.story #place {
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 440px;
+  height: auto;
   display: flex;
-  background-image: url("../assets/images/place_bg.png");
+  flex-direction: column;
+  align-items: center;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+.swiper-slide-caption{
+  font-family: Roboto Mono;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-top: 10px;
+}
+/*'.'.'.'.'.'.*/
+/*   PLACE    */
+/*'.'.'.'.'.'.*/
+#place {
+  display: flex;
+  background-image: url("../assets/images/Studio_Koukaki-image_place.png");
   width: 100%;
   min-height: 699px;
   background-size: cover;
 }
-.story #place h3 {
+.cloud-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.cloud {
+  position: absolute;
+  will-change: transform; 
+  transition: transform 0.5s ease-out; 
+}
+.big-cloud {
+  top: 10%; 
+  left: 170%; 
+}
+.little-cloud {
+  top: 40%; 
+  right: -50%; 
+}
+#place h3 {
   background-image: url("../assets/images/orange_place_bg.png");
   margin-bottom: -1em;
 }
-.story #place > div {
+#place > div {
   max-width: 580px;
   display: flex;
   flex-direction: column;
@@ -208,10 +262,12 @@
   align-items: flex-start;
   margin-left: 6em;
 }
-.story #place > div p {
+#place > div p {
   padding-left: 5em;
 }
-
+/*'.'.'.'.'.'.*/
+/*   STUDIO   */
+/*'.'.'.'.'.'.*/
 #studio {
   position: relative;
   margin-top: 3em;
@@ -247,22 +303,39 @@
 #studio > div p {
   width: 44.5%;
 }
+
+/*'.'.'.'.'.'.*/
+/*   OSCARS   */
+/*'.'.'.'.'.'.*/
 #oscars {
   position: relative;
   margin-top: 3em;
+  display: flex;
+  align-items: center; 
+  justify-content: center;  
 }
 #oscars h3 {
   background-image: url("../assets/images/Rectangle 23.png"); 
+  display: flex;
+  flex-direction: column;
+  font-family: Quicksand;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 52.5px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  align-items: flex-start;
+  width: auto;
 }
-
-#oscars h3::after {
-  content: url("../assets/images/oscars.png");
+#oscars img {
   background-color: #FFF5E9;
-  position: absolute;
-  right: 3em;
-  top: 1.2em; 
+  max-height: 100%; 
+  max-width: 100%; 
 }
 
+/*'.'.'.'.'.'.*/
+/*   @MEDIA   */
+/*'.'.'.'.'.'.*/
 @media all and (max-width: 1192px) {
   .story__article::before {
     left: 40%;

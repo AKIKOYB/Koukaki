@@ -3,19 +3,31 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     // Enqueue the parent stylesheet
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-
     // Enqueue the child stylesheet
     wp_enqueue_style( 'child-style', get_stylesheet_uri(), array('parent-style'), wp_get_theme()->get('Version') );
-
-    // Enqueue the front page specific stylesheet
+    // Enqueue the front page stylesheet
     wp_enqueue_style( 'foce-child-front-page-style', get_stylesheet_directory_uri() . '/css/front-page.css', array('child-style'), wp_get_theme()->get('Version') );
+    // Enqueue swiper CSS
+    wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
 }
 
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
+add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 function theme_enqueue_scripts() {
-    // Enqueue custom scripts
-    wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/script.js' );
+    // Enqueue Swiper JS
+    wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), false, true);
+    // Enqueue custom script 
+    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery', 'swiper'), '1.0.0', true);
 }
+
+//h2 animation, not working
+//function foce_child_enqueue_scripts() {
+    // Enqueue the parent theme styles if needed
+  //  wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+
+    // Enqueue the child theme script
+    //wp_enqueue_script('child-script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), null, true);
+//}
+//add_action('wp_enqueue_scripts', 'foce_child_enqueue_scripts');
 
 // Get customizer options from parent theme
 if ( get_stylesheet() !== get_template() ) {

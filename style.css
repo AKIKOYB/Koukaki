@@ -10,111 +10,97 @@
 
 @import url('css/front-page.css');
 
-@keyframes fadeInAnimation {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-in-out forwards;
-}
-
 /* Animation du Banner en fade-in */
 /* Animation des titres en fade-in */
 /* Animation des sections en fade-in */
 /* Fade in Section Banner */
 @keyframes fadein_banner {
-    0% {
-      opacity: 0;
-      transform: translateY(-40%);
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes fadein_logo {
-    0% {
-      opacity: 0;
-      transform: translateY(40%);
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  .banner {
-    animation: fadein_banner 3s;
-    width: 100%;
-  }
-  .banner .logo_fade_in {
-    animation: fadein_logo 2s;
-  }
-  
-  /* Animation des titres en fade-in */
-  .anim_title_1,
-  .anim_title_2 {
+  0% {
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(-40%);
   }
-  
-  .title_animate_1,
-  .title_animate_2 {
-    display: inline-block;
-    position: relative;
+  100% {
     opacity: 1;
-    transform: translateY(0);
   }
-  
-  .title_animate_1 {
-    animation: fade_in_title_animate_1 1.5s ease-in-out;
-  }
-  
-  .title_animate_2 {
-    animation: fade_in_title_animate_2 1.5s ease-in-out;
-  }
-  
-  @keyframes fade_in_title_animate_1 {
-    0% {
-      transform: translateY(50%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  @keyframes fade_in_title_animate_2 {
-    0% {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  /* Animation des sections en fade-in */
-  .anim_article {
+}
+@keyframes fadein_logo {
+  0% {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transform: translateY(40%);
   }
-  
-  .article_animate {
-    animation: fade_in_article_animate 2s ease-in-out forwards;
+  100% {
+    opacity: 1;
   }
-  
-  @keyframes fade_in_article_animate {
-    0% {
-      transform: translateY(50%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+}
+.banner {
+  animation: fadein_banner 3s;
+  width: 100%;
+}
+.banner .logo_fade_in {
+  animation: fadein_logo 2s;
+}
 
+/* Animation des titres en fade-in */
+.anim_title_1,
+.anim_title_2 {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.title_animate_1,
+.title_animate_2 {
+  display: inline-block;
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title_animate_1 {
+  animation: fade_in_title_animate_1 1.5s ease-in-out;
+}
+
+.title_animate_2 {
+  animation: fade_in_title_animate_2 1.5s ease-in-out;
+}
+
+@keyframes fade_in_title_animate_1 {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade_in_title_animate_2 {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* Animation des sections en fade-in */
+.anim_article {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.article_animate {
+  animation: fade_in_article_animate 2s ease-in-out forwards;
+}
+
+@keyframes fade_in_article_animate {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
