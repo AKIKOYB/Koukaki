@@ -30,7 +30,7 @@ get_header();
             </div>
         </section>
 
-        <section id="place" class="title_animate_1">
+        <section id="place" class="place title_animate_1">
             <div class="cloud-container">
                 <img src="<?php echo  get_theme_file_uri() . '/assets/images/big_cloud.png'; ?> " class="cloud big-cloud" alt="Big Cloud">
                 <img src="<?php echo  get_theme_file_uri() . '/assets/images/little_cloud.png'; ?> " class="cloud little-cloud" alt="Little Cloud">
@@ -40,7 +40,7 @@ get_header();
                 <p><?php echo get_theme_mod('place'); ?></p>
             </div>
         </section>
-        
+        <script src="<?php echo get_theme_file_uri() . '/js/parallax.js'; ?>"></script>
         <section id="studio" class="anim_article article_animate">
             <h2 class="anim_article article_animate">Studio Koukaki</h2>
             <div>
@@ -51,10 +51,9 @@ get_header();
 
         <section id="oscars" class="anim_article article_animate">
             <h3>Fleurs d’oranger & chats errants <span></span>est nominé aux Oscars Short<span></span>Film Animated de 2022 !</h3>
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/oscars.png" alt="Oscars">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/oscars1.png" alt="Oscars">
         </section>
     </main>
-
 <?php
 get_footer();
 ?>

@@ -11,6 +11,15 @@ function theme_enqueue_styles() {
     wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
 }
 
+function foce_child_enqueue_styles() {
+    // Enqueue parent theme stylesheet
+    wp_enqueue_style('foce-parent-style', get_template_directory_uri() . '/style.css');
+
+    // Enqueue child theme stylesheet
+    wp_enqueue_style('foce-child-style', get_stylesheet_directory_uri() . '/css/front-page.css', array('foce-parent-style'), wp_get_theme()->get('Version'));
+}
+add_action('wp_enqueue_scripts', 'foce_child_enqueue_styles');
+
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 function theme_enqueue_scripts() {
     // Enqueue Swiper JS
@@ -18,6 +27,7 @@ function theme_enqueue_scripts() {
     // Enqueue custom script 
     wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery', 'swiper'), '1.0.0', true);
 }
+
 
 //h2 animation, not working
 //function foce_child_enqueue_scripts() {
@@ -42,8 +52,7 @@ if ( get_stylesheet() !== get_template() ) {
 
 // Deregister the parent theme's front-page SCSS file
 function deregister_parent_theme_styles() {
-    // Use the identified handle if there's a specific one for front-page styles
-    wp_dequeue_style( 'foce-style' ); // Assuming 'foce-style' is the main handle used by the parent theme
+    wp_dequeue_style( 'foce-style' ); 
     wp_deregister_style( 'foce-style' );
 }
 add_action( 'wp_enqueue_scripts', 'deregister_parent_theme_styles', 20 );

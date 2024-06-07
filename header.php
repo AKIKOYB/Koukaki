@@ -28,25 +28,28 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'foce' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<nav id="site-navigation" class="main-navigation">
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-            <ul>
-                <li><a href="#story">Histoire</a></li>
-                <li><a href="#characters">Personnages</a></li>
-                <li class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
-                <li><a href="#place">Lieu</a></li>
-                <li><a href="#studio">Studio Koukaki</a></li>
-                <li><a href="#oscars">Oscars</a></li>
-            </ul>
+        <nav id="site-navigation" class="main-navigation">
+          <div>
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="site-title"><?php bloginfo( 'name' ); ?></a>
+          </div>
+          <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" id="icons">
 
+          </button>
+            <div class="burger-menu">
+                <ul>
+                    <img src="<?php echo  get_theme_file_uri() . '/assets/images/menu_logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+                    <li class="burger-menu__story"><a href="#story">Histoire</a></li>
+                    <li class="burger-menu__characters"><a href="#characters">Personnages</a></li>
+                    <li class="burger-menu__place"><a href="#place">Lieu</a></li>
+                    <li class="burger-menu__studio"><a href="#studio">Studio Koukaki</a></li>
+                    <li class="burger-menu__footer"><a href="#footer">Studio Koukaki</a></li>
+                </ul>
+            </div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="<?php echo get_theme_file_uri('/js/script.js'); ?>"></script>
 
     <!-- Initialize Swiper -->
     <script>
