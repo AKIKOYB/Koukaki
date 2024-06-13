@@ -14,7 +14,7 @@ get_header();
         </section>
 
         <section id="story" class="story anim_article article_animate">
-            <h2><span>L'histoire</span></h2>
+            <h2>L'histoire</h2>
             <article id="" class="story__article title_animate_1">
                 <p class="anim_article article_animate"><?php echo get_theme_mod('story'); ?></p>
             </article>
@@ -31,16 +31,38 @@ get_header();
         </section>
 
         <section id="place" class="place title_animate_1">
-            <div class="cloud-container">
-                <img src="<?php echo  get_theme_file_uri() . '/assets/images/big_cloud.png'; ?> " class="cloud big-cloud" alt="Big Cloud">
-                <img src="<?php echo  get_theme_file_uri() . '/assets/images/little_cloud.png'; ?> " class="cloud little-cloud" alt="Little Cloud">
+            <div class="cloud">
+            <img src="<?php echo get_theme_file_uri() . '/assets/images/big_cloud.png'; ?>" class="cloud big_cloud" alt="Big Cloud"
+             data-0="transform: translateX(0px);" data-300="transform: translateX(-300px);">
+            <img src="<?php echo get_theme_file_uri() . '/assets/images/little_cloud.png'; ?>" class="cloud little_cloud" alt="Little Cloud"
+             data-0="transform: translateX(0px);" data-300="transform: translateX(-300px);">
             </div>
-            <div>
+            <div class="place_text_nuages">
                 <h3 class="title_animate_1">Le Lieu</h3>
-                <p><?php echo get_theme_mod('place'); ?></p>
+                <p class="anim_article article_animate"><?php echo get_theme_mod('place'); ?></p>
             </div>
         </section>
-        <script src="<?php echo get_theme_file_uri() . '/js/parallax.js'; ?>"></script>
+        <!-- Include skrollr and custom parallax script -->
+        <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/skrollr.min.js"></script>
+<script src="<?php echo get_theme_file_uri('/js/parallax.min.js'); ?>"></script>
+<script src="<?php echo get_theme_file_uri('/js/parallax.js'); ?>"></script>
+<script>
+    // Initialize skrollr
+    var s = skrollr.init({
+        smoothScrolling: true,
+        forceHeight: false
+    });
+
+    // Check if skrollr is working correctly
+    if (!s.isMobile()) {
+        // Refresh skrollr on window resize
+        window.addEventListener('resize', function() {
+            s.refresh();
+        });
+    } else {
+        s.destroy(); // Destroy skrollr if it's a mobile device
+    }
+</script>
         <section id="studio" class="anim_article article_animate">
             <h2 class="anim_article article_animate">Studio Koukaki</h2>
             <div>

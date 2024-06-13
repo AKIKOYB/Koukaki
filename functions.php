@@ -1,43 +1,46 @@
 <?php
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+// Enqueue parent and child theme styles
 function theme_enqueue_styles() {
-    // Enqueue the parent stylesheet
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    // Enqueue the child stylesheet
-    wp_enqueue_style( 'child-style', get_stylesheet_uri(), array('parent-style'), wp_get_theme()->get('Version') );
-    // Enqueue the front page stylesheet
-    wp_enqueue_style( 'foce-child-front-page-style', get_stylesheet_directory_uri() . '/css/front-page.css', array('child-style'), wp_get_theme()->get('Version') );
-    // Enqueue swiper CSS
+    // Enqueue parent theme stylesheet
+    wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+    
+    // Enqueue child theme stylesheet
+    wp_enqueue_style('child-style', get_stylesheet_uri(), array('parent-style'), wp_get_theme()->get('Version'));
+    
+    // Enqueue front page stylesheet
+    wp_enqueue_style('foce-child-front-page-style', get_stylesheet_directory_uri() . '/css/front-page.css', array('child-style'), wp_get_theme()->get('Version'));
+    
+    // Enqueue Swiper CSS
     wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
 }
+add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
-function foce_child_enqueue_styles() {
-    // Enqueue parent theme stylesheet
-    wp_enqueue_style('foce-parent-style', get_template_directory_uri() . '/style.css');
-
-    // Enqueue child theme stylesheet
-    wp_enqueue_style('foce-child-style', get_stylesheet_directory_uri() . '/css/front-page.css', array('foce-parent-style'), wp_get_theme()->get('Version'));
-}
-add_action('wp_enqueue_scripts', 'foce_child_enqueue_styles');
-
-add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
+// Enqueue scripts
 function theme_enqueue_scripts() {
     // Enqueue Swiper JS
     wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), false, true);
-    // Enqueue custom script 
-    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery', 'swiper'), '1.0.0', true);
+    
+    // Enqueue Skrollr JS
+    wp_enqueue_script('skrollr', get_stylesheet_directory_uri() . '/js/skrollr.min.js', array(), null, true);
+    
+    // Enqueue Parallax JS
+    wp_enqueue_script('parallax', get_stylesheet_directory_uri() . '/js/parallax.min.js', array(), null, true);
+    
+    // Enqueue custom script
+    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery', 'swiper', 'skrollr', 'parallax'), '1.0.0', true);
 }
+add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
+
 
 
 //h2 animation, not working
-//function foce_child_enqueue_scripts() {
-    // Enqueue the parent theme styles if needed
-  //  wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-
-    // Enqueue the child theme script
-    //wp_enqueue_script('child-script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), null, true);
-//}
-//add_action('wp_enqueue_scripts', 'foce_child_enqueue_scripts');
+function foce_child_enqueue_scripts() {
+ // Enqueue the parent theme styles if needed
+wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+ //Enqueue the child theme script
+wp_enqueue_script('child-script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'foce_child_enqueue_scripts');
 
 // Get customizer options from parent theme
 if ( get_stylesheet() !== get_template() ) {

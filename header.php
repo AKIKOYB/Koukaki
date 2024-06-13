@@ -49,6 +49,8 @@
 	</header><!-- #masthead -->
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/skrollr.min.js"></script>
+    <script src="<?php echo get_theme_file_uri('/js/parallax.min.js'); ?>"></script>
     <script src="<?php echo get_theme_file_uri('/js/script.js'); ?>"></script>
 
     <!-- Initialize Swiper -->
@@ -69,6 +71,10 @@
         el: ".swiper-pagination",
       },
     });
+    </script>
+    
+    <script> // Initialize skrollr
+      var s = skrollr.init();
     </script>
 </body>
 </html>
