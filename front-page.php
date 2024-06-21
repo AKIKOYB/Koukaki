@@ -13,16 +13,16 @@ get_header();
             </video>
         </section>
 
-        <section id="story" class="story anim_article article_animate">
-            <h2>L'histoire</h2>
-            <article id="" class="story__article title_animate_1">
+        <section id="story" class="story">
+        <h2><span class="anim_title">L'histoire</span></h2>
+            <article id="" class="story__article">
                 <p class="anim_article article_animate"><?php echo get_theme_mod('story'); ?></p>
             </article>
         </section>
 
         <section id="characters" class="characters anim_article article_animate">
             <div>
-                <h3 class="title_animate_1">Les personnages</h3>
+                <h3><span class="anim_title">Les personnages</span></h3>
             </div>
             <div>
                 <?php get_template_part('characters-section'); ?><!-- brings characters-section.php-->
@@ -38,7 +38,7 @@ get_header();
                 data-bottom-top="transform:translateX(-900px);" data-center-center="transform:translateX(0px);" alt="Little Cloud">
             </div>
             <div class="place_text_nuages">
-                <h3 class="title_animate_1">Le Lieu</h3>
+                <h3><span class="anim_title">Le Lieu</span></h3>
                 <p class="anim_article article_animate"><?php echo get_theme_mod('place'); ?></p>
             </div>
         </section>
@@ -73,16 +73,16 @@ get_header();
             });
         </script>
 
-        <section id="studio" class="anim_article article_animate">
-            <h2 class="anim_article article_animate">Studio Koukaki</h2>
+        <section id="studio" class="studio title_animate_1">
+            <h2><span class="anim_title">Studio Koukaki</span></h2>
             <div>
                 <p class="anim_article article_animate">Acteur majeur de l’animation, Koukaki est un studio intégré fondé en 2012 qui créé, produit et distribue des programmes originaux dans plus de 190 pays pour les enfants et les adultes. Nous avons deux sections en activité : le long métrage et le court métrage. Nous développons des films fantastiques, principalement autour de la culture de notre pays natal, le Japon.</p>
                 <p class="anim_article article_animate">Avec une créativité et une capacité d’innovation mondialement reconnues, une expertise éditoriale et commerciale à la pointe de son industrie, le Studio Koukaki se positionne comme un acteur incontournable dans un marché en forte croissance. Koukaki construit chaque année de véritables succès et capitalise sur de puissantes marques historiques. Cette année, il vous présente “Fleurs d’oranger et chats errants”.</p>
             </div>
         </section>
 
-        <section id="oscars" class="anim_article article_animate">
-            <h3>Fleurs d’oranger & chats errants <span></span>est nominé aux Oscars Short<span></span>Film Animated de 2022 !</h3>
+        <section id="oscars" class="oscars title_animate_1">
+            <h3><span class="anim_title">Fleurs d’oranger & chats errants <span></span>est nominé aux Oscars Short<span></span>Film Animated de 2022 !</h3>
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/oscars1.png" alt="Oscars">
         </section>
     </main>

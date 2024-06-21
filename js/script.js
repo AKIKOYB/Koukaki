@@ -2,18 +2,11 @@ if (!window.scriptLoaded) {
   window.scriptLoaded = true;
 
   document.addEventListener('DOMContentLoaded', function() {
-    // Define fadeInAnimation if it's not already defined
-    if (typeof fadeInAnimation !== 'function') {
-      function fadeInAnimation(entry) {
-        entry.target.classList.add('fade-in');
-      }
-    }
-
     // Intersection Observer for sections
     const sectionObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          fadeInAnimation(entry);
+          entry.target.classList.add('fade-in');
           observer.unobserve(entry.target);
         }
       });
@@ -23,6 +16,25 @@ if (!window.scriptLoaded) {
     const sections = document.querySelectorAll('#story, #characters, #place, #studio, #Oscars, footer');
     sections.forEach((section) => {
       sectionObserver.observe(section);
+    });
+
+    // Intersection Observer for title animations
+    const titleObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        console.log(entry.target); // Log the observed elements
+        if (entry.isIntersecting) {
+          console.log('Element is intersecting:', entry.target); // Log when the element is in view
+          entry.target.classList.add('reveal'); // Add 'reveal' class when element is in view
+          observer.unobserve(entry.target); // Stop observing once revealed
+        }
+      });
+    }, { rootMargin: '0px 0px -20% 0px' });
+
+    // Select elements to observe
+    const titles = document.querySelectorAll('.story h2 span, .characters h3 span, .place h3 span, .studio h2 span, .oscars h3 span');
+    titles.forEach(el => {
+      titleObserver.observe(el);
+      console.log('Observing element:', el); // Log each element being observed
     });
 
     // Banner title scroll effect
@@ -62,54 +74,22 @@ if (!window.scriptLoaded) {
       });
     }
 
-    // // Initialize skrollr
-    // var s = skrollr.init({
-    //   smoothScrolling: true,
-    //   forceHeight: false
-    // });
+    // Parallax effect for the place section
+    const place = document.querySelector('.place');
+    if (place) {
+      const placeOffsetTop = place.offsetTop;
 
-    // // Check if skrollr is working correctly
-    // if (!s.isMobile()) {
-    //   // Refresh skrollr on window resize
-    //   window.addEventListener('resize', function() {
-    //     s.refresh();
-    //   });
-    // } else {
-    //   s.destroy(); // Destroy skrollr if it's a mobile device
-    // }
+      window.addEventListener('scroll', function() {
+        const scrollY = window.scrollY;
 
-    // Intersection Observer for title animations
-    const titleObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('title_animate_1');
-          observer.unobserve(entry.target);
+        if (scrollY >= placeOffsetTop) {
+          let parallaxValue = scrollY - placeOffsetTop;
+          parallaxValue = Math.min(parallaxValue, 300);
+          place.style.transform = `translateY(${parallaxValue}px)`;
+        } else {
+          place.style.transform = 'translateY(0px)';
         }
       });
-    }, { rootMargin: '0px 0px -20% 0px' });
-
-    // Observe titles
-    const titles = document.querySelectorAll('.anim_title_1');
-    titles.forEach((title) => {
-      titleObserver.observe(title);
-    });
+    }
   });
-
-  // Parallax effect for the place section
-  const place = document.querySelector('.place');
-  if (place) {
-    const placeOffsetTop = place.offsetTop;
-
-    window.addEventListener('scroll', function() {
-      const scrollY = window.scrollY;
-
-      if (scrollY >= placeOffsetTop) {
-        let parallaxValue = scrollY - placeOffsetTop;
-        parallaxValue = Math.min(parallaxValue, 300);
-        place.style.transform = `translateY(${parallaxValue}px)`;
-      } else {
-        place.style.transform = 'translateY(0px)';
-      }
-    });
-  }
 }
