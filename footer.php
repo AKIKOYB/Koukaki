@@ -11,16 +11,17 @@
 
 ?>
 
-	<footer  class="site-footer">
-        <ul>
+<footer  class="site-footer">
+    <ul>
             <li><a href="#">Mentions Légales</a></li>
             <li><a href="#">STUDIO KOUKAKI</a></li>
             <li><a href="#">Contact</a></li>
-        </ul>
-	</footer><!-- #colophon -->
+    </ul>
+</footer><!-- #colophon -->
 </div><!-- #page -->
-
+<script type="text/javascript">
+    var s = skrollr.init();
+</script><!-- try new -->
 <?php wp_footer(); ?>
-
 </body>
 </html>

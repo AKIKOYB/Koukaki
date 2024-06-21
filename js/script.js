@@ -17,7 +17,7 @@ if (!window.scriptLoaded) {
           observer.unobserve(entry.target);
         }
       });
-    },{ rootMargin:'-100px 0px -100px 0px'});
+    }, { rootMargin: '-100px 0px -100px 0px' });
 
     // Observe sections
     const sections = document.querySelectorAll('#story, #characters, #place, #studio, #Oscars, footer');
@@ -34,13 +34,12 @@ if (!window.scriptLoaded) {
       });
     }
 
-
     // Initialize Swiper
     var swiper = new Swiper(".mySwiper", {
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
-      slidesPerView: "auto",
+      slidesPerView: 3,
       coverflowEffect: {
         rotate: 50,
         stretch: -100,
@@ -62,55 +61,55 @@ if (!window.scriptLoaded) {
         navigation.classList.toggle("open");
       });
     }
+
+    // // Initialize skrollr
+    // var s = skrollr.init({
+    //   smoothScrolling: true,
+    //   forceHeight: false
+    // });
+
+    // // Check if skrollr is working correctly
+    // if (!s.isMobile()) {
+    //   // Refresh skrollr on window resize
+    //   window.addEventListener('resize', function() {
+    //     s.refresh();
+    //   });
+    // } else {
+    //   s.destroy(); // Destroy skrollr if it's a mobile device
+    // }
+
+    // Intersection Observer for title animations
+    const titleObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('title_animate_1');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -20% 0px' });
+
+    // Observe titles
+    const titles = document.querySelectorAll('.anim_title_1');
+    titles.forEach((title) => {
+      titleObserver.observe(title);
+    });
   });
-}
 
- // Initialize skrollr
- var s = skrollr.init({
-  smoothScrolling: true,
-  forceHeight: false
-});
+  // Parallax effect for the place section
+  const place = document.querySelector('.place');
+  if (place) {
+    const placeOffsetTop = place.offsetTop;
 
-// Check if skrollr is working correctly
-if (!s.isMobile()) {
-  // Refresh skrollr on window resize
-  window.addEventListener('resize', function() {
-    s.refresh();
-  });
-} else {
-  s.destroy(); // Destroy skrollr if it's a mobile device
-}
+    window.addEventListener('scroll', function() {
+      const scrollY = window.scrollY;
 
-// Intersection Observer for title animations
-const titleObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const spans = entry.target.querySelectorAll('span');
-      spans.forEach(span => span.classList.add('reveal'));
-      observer.unobserve(entry.target);
-    }
-  });
-}, { rootMargin: '0px 0px -20% 0px' });
-
-// Observe titles
-const titles = document.querySelectorAll('.story h2');
-titles.forEach((title) => {
-  titleObserver.observe(title);
-});
-
-// Intersection Observer for title animations
-document.addEventListener('DOMContentLoaded', function() {
-  const titleObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('title_animate_1');
-        observer.unobserve(entry.target);
+      if (scrollY >= placeOffsetTop) {
+        let parallaxValue = scrollY - placeOffsetTop;
+        parallaxValue = Math.min(parallaxValue, 300);
+        place.style.transform = `translateY(${parallaxValue}px)`;
+      } else {
+        place.style.transform = 'translateY(0px)';
       }
     });
-  }, { rootMargin: '0px 0px -20% 0px' });
-
-  const titles = document.querySelectorAll('.anim_title_1');
-  titles.forEach((title) => {
-    titleObserver.observe(title);
-  });
-});
+  }
+}

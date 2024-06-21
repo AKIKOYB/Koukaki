@@ -119,6 +119,19 @@
 /*   STORY L'histoire */
 /*'.'.'.'.'.'.*/
 
+h2 {
+  color: #FFF5E9;
+  font-size: 4.429rem;
+  background-image: url(../assets/images/purple_title_bg.png);
+  background-color: #FFF5E9;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 1em 2em;
+  margin: 0;
+  background-position: center;
+  text-align: center; 
+}
+
 @keyframes rotation {
   from {
       transform: rotate(0deg);
@@ -229,42 +242,85 @@
 #place {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   background-image: url("../assets/images/Studio_Koukaki-image_place.png")!important;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
   min-height: 699px;
-  justify-content: center;
+  justify-content: space-around;
   position: relative;
+  z-index: 1;
 }
 
 #place .cloud {
-  position: absolute; /*if it sets absolute, clouds r invisible. relative is visible choice*/
-  z-index: 1;
-  visibility: visible; /* Ensure the clouds are visible */
-  opacity: 1; /* Ensure the opacity is 1 if you are using opacity for transitions */
-  transition: transform 0.3s ease-in-out; 
+  position: relative; /*if it sets absolute, clouds r invisible. relative is visible choice*/
+  top:10%;
+  z-index: 2;
+  /*visibility: visible; /* Ensure the clouds are visible */
+  /*opacity: 1; /* Ensure the opacity is 1 if you are using opacity for transitions */
+  /*transition: transform 0.3s ease-in-out; */
 }
 #place .cloud img {
-  max-height: 300px;
+  /*max-height: 1000px;
+  height: fit-content;*/
+  z-index: 3;
   filter: blur(13px) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 #place .little_cloud {
   width: 10%;
-  left: 50%;
-  top: 30%;
+  position: fixed;
+  left: 75%;
+  top: 40%;
 }
 #place .big_cloud {
   width: 20%;
-  left: 60%;
+  position: absolute;
+  left: 85%;
   top: 5%;
 }
 
 #place .place_text_nuages h3 {
   background-image: url("../assets/images/orange_place_bg.png");
-  margin-bottom: -1em;
+  margin-left: 2em;
+  z-index: 4;
+  /*margin-bottom: -1em;
+  margin-top: -1em;*/
 }
+#place .place_text_nuages p {
+  font-size: 15px;
+  line-height: 1.8;
+  padding-left: 5em;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 6em;
+}
+/* Media queries */
+@media (max-width: 1200px) {
+  #place .place_text_nuages {
+      top: 30%;
+  }
+}
+
+@media (max-width: 1024px) {
+  #place .place_text_nuages {
+      top: 25%;
+      position: absolute;
+  }
+}
+
+@media (max-width: 950px) {
+  #place .place_text_nuages {
+      width: 100%;
+      top: 25%;
+      position: absolute;
+  }
+}
+
 /*
 #place .place_text_nuages {
   position: absolute;
@@ -286,17 +342,7 @@
   margin-left: 6em;
 }
 */
-#place .place_text_nuages p {
-  font-size: 15px;
-  line-height: 1.8;
-  padding-left: 5em;
-  max-width: 580px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-left: 6em;
-}
+
 /*.story {
   overflow: hidden;
   width: 100%;
@@ -356,25 +402,7 @@
   line-height: 1.8;
 }
 
-/* Media queries */
-@media (max-width: 1200px) {
-  #place .place_text_nuages {
-      top: 20%;
-  }
-}
 
-@media (max-width: 1024px) {
-  #place .place_text_nuages {
-      top: 15%;
-  }
-}
-
-@media (max-width: 950px) {
-  #place .place_text_nuages {
-      width: 55%;
-      top: 10%;
-  }
-}
 
 
 /*new start*/
@@ -611,28 +639,32 @@ new end*/
 @media all and (max-width: 1192px) {
   .story__article::before {
     left: 40%;
-    top: 8em;
+    /*top: 8em;*/
   }
   .story__article::after {
     left: calc(40% + 414px);
-    top: 2em;
+   /* top: 2em;*/
+  }
+  #place .place_text_nuages p {
+  
   }
 }
 @media all and (max-width: 1040px) {
   .story__article::before {
     left: 33%;
-    top: 15em;
+    top: 1em;
   }
   .story__article::after {
     content: url("../assets/images/Hibiscus.png");
     position: absolute;
     left: calc(33% + 414px);
-    top: 9em;
+    top: -5em;
   }
   .story #characters {
     flex-direction: column;
   }
 }
+
 @media all and (max-width: 920px) {
   .story h2::before {
     content: "";
@@ -649,7 +681,7 @@ new end*/
   .story__article::after {
     content: "";
   }
-  .story #characters {
+  #characters {
     flex-direction: column;
   }
   .story #place > div {
@@ -668,21 +700,43 @@ new end*/
   #studio > div p {
     width: 100%;
   }
+  #oscars {
+  flex-direction: column;
+  }
+  #oscars h3::before {
+  content: "";
+  }
 }
 @media all and (max-width: 700px) {
+  #studio h2 {
+  font-size: 3.429rem;
+  }
   #studio h2::before {
     content: "";
   }
+  #oscars {
+  flex-direction: column;
+  }
+  #oscars h3::before {
+    content: "";
+  }
+  #oscars h3::after 
+  {
+    content: "";
+  }
 }
+
 
 /*'.'.'.'.'.'.'.'.'*/
 /*   BURGER MENU   */
 /*'.'.'.'.'.'.'.'.'*/
 .main-navigation {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
   align-items: center;
-  height: 80px;
+  height: 50px;
   position: relative;
 }
 .main-navigation .site-title {
@@ -690,9 +744,10 @@ new end*/
   height: 100%;
   text-align: center;
   justify-content: center;
+  align-items: start;
   display: flex;
   position:absolute;
-}
+  }
 .main-navigation .site-title a {
   margin-left: 7em;
 }

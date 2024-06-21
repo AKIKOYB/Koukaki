@@ -32,37 +32,47 @@ get_header();
 
         <section id="place" class="place title_animate_1">
             <div class="cloud">
-            <img src="<?php echo get_theme_file_uri() . '/assets/images/big_cloud.png'; ?>" class="cloud big_cloud" alt="Big Cloud"
-             data-0="transform: translateX(0px);" data-300="transform: translateX(-300px);">
-            <img src="<?php echo get_theme_file_uri() . '/assets/images/little_cloud.png'; ?>" class="cloud little_cloud" alt="Little Cloud"
-             data-0="transform: translateX(0px);" data-300="transform: translateX(-300px);">
+            <img src="<?php echo get_theme_file_uri() . '/assets/images/big_cloud.png'; ?>" class="cloud big_cloud"  
+                data-bottom-top="transform:translateX(-700px);" data-center-center="transform:translateX(0px);" alt="Big Cloud">
+            <img src="<?php echo get_theme_file_uri() . '/assets/images/little_cloud.png'; ?>" class="cloud little_cloud"  
+                data-bottom-top="transform:translateX(-900px);" data-center-center="transform:translateX(0px);" alt="Little Cloud">
             </div>
             <div class="place_text_nuages">
                 <h3 class="title_animate_1">Le Lieu</h3>
                 <p class="anim_article article_animate"><?php echo get_theme_mod('place'); ?></p>
             </div>
         </section>
-        <!-- Include skrollr and custom parallax script -->
-        <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/skrollr.min.js"></script>
-<script src="<?php echo get_theme_file_uri('/js/parallax.min.js'); ?>"></script>
-<script src="<?php echo get_theme_file_uri('/js/parallax.js'); ?>"></script>
-<script>
-    // Initialize skrollr
-    var s = skrollr.init({
-        smoothScrolling: true,
-        forceHeight: false
-    });
 
-    // Check if skrollr is working correctly
-    if (!s.isMobile()) {
-        // Refresh skrollr on window resize
-        window.addEventListener('resize', function() {
-            s.refresh();
-        });
-    } else {
-        s.destroy(); // Destroy skrollr if it's a mobile device
-    }
-</script>
+         <script>
+            var clouds = document.querySelectorAll('.cloud');
+            clouds.forEach(function(cloud) {
+                var parallax = new Parallax(cloud);
+            });
+
+            // Intersection Observer for animating titles and articles
+            document.addEventListener('DOMContentLoaded', function () {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.1
+                };
+
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('title_animate_1');
+                            entry.target.classList.add('article_animate');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.anim_title, .anim_article').forEach(el => {
+                    observer.observe(el);
+                });
+            });
+        </script>
+
         <section id="studio" class="anim_article article_animate">
             <h2 class="anim_article article_animate">Studio Koukaki</h2>
             <div>

@@ -41,8 +41,7 @@
 }
 
 /* Animation des titres en fade-in */
-.anim_title_1,
-.anim_title_2 {
+.anim_title {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
@@ -104,4 +103,3 @@
     opacity: 1;
   }
 }
-

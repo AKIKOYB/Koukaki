@@ -18,7 +18,6 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/style.css'; ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
 <?php wp_head(); ?>
 </head>
 
@@ -50,6 +49,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/skrollr.min.js"></script>
+    <script src="<?php echo get_theme_file_uri() . '/js/skrollr.min.js'; ?>"></script>
     <script src="<?php echo get_theme_file_uri('/js/parallax.min.js'); ?>"></script>
     <script src="<?php echo get_theme_file_uri('/js/script.js'); ?>"></script>
 
