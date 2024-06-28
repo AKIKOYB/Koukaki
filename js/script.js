@@ -1,5 +1,6 @@
 if (!window.scriptLoaded) {
   window.scriptLoaded = true;
+  // the script is only loaded once, not multiple time.
 
   document.addEventListener('DOMContentLoaded', function() {
     // Intersection Observer for sections
@@ -43,6 +44,8 @@ if (!window.scriptLoaded) {
       window.addEventListener('scroll', function() {
         const scrollPosition = window.scrollY;
         bannerTitle.style.transform = `translate(-50%, calc(-50% + ${scrollPosition * 0.5}px))`;
+        //-50% for the X, centers the element horizontally.
+        //scrollPosition * 0.5, half the speed of the scroll.
       });
     }
 

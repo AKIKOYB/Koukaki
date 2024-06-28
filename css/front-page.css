@@ -47,7 +47,7 @@
     z-index: -100;
   }
 }
-/*adding video start */
+/*adding video */
 .video-container {
   position: absolute;
   top: 0;
@@ -97,18 +97,6 @@
     transform: translateY(-10px);
   }
 }
-/*'.'.'.'.'.'.*/
-/*   TITLES   */
-/*'.'.'.'.'.'.*/
-.studio, .oscars {
-  position: relative;
-  padding: 2em 0; /* Add padding to create space between sections */
-  margin-bottom: 2em; /* Ensure there is space between sections */
-  z-index: 0; /* Default stacking context */
-}
-
-
-
 /*'.'.'.'.'.'.*/
 /*   STORY L'histoire */
 /*'.'.'.'.'.'.*/
@@ -193,7 +181,7 @@ h2 {
 .oscars h3 span {
   display: inline-block; 
   position: relative; 
-  opacity: 1;/* original 0, 1for the test */
+  opacity: 0;/* original 0, 1 for the test */
   transform: translateY(100px);
 }
 
@@ -211,8 +199,14 @@ h2 {
 .anim_article {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.6s ease 0.8s, transform 0.6s  ease 0.8s;
 }
+.anim_title.slow {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.9s ease;
+}
+
 
 /* Class to reveal elements when they are in view */
 .anim_title.reveal,
@@ -313,8 +307,6 @@ h2 {
   z-index: 2;
 }
 #place .cloud img {
-  /*max-height: 1000px;
-  height: fit-content;*/
   z-index: 3;
   filter: blur(13px) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -376,8 +368,8 @@ h2 {
 /*   STUDIO  Studio Koukaki */
 /*'.'.'.'.'.'.*/
 #studio {
-  position:  sticky;
-  margin-top: 3em;
+  position:  relative;
+  margin-top: 17em;
   z-index: 1;
 }
 #studio h2 {
