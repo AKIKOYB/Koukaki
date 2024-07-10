@@ -65,14 +65,7 @@
     }
   
 
- /* 
-  background-image: url("../assets/images/banner.png");
-  background-size: cover;
-  img {
-    margin-top: -10%;
-    width: 50%;
-  }*/
-
+ 
 /* Floating animation */
 @keyframes float {
   0%, 100% {
@@ -82,37 +75,6 @@
     transform: translateY(-10px);
   }
 }
-
-/* adding end */
-
-/*turning flowers start 
-@keyframes rotation {
-  from {
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(360deg);
-  }
-}
-
-// Styles for turning flowers
-.story h2::after {
-  content: url('foce-child\assets\images\sunflower_leaves.png'); 
-  position: absolute;
-  left: 0.7em;
-  top: 6em;
-  animation: rotation 10s linear infinite; 
-}
-
-.story__article::after {
-  content: url('foce-child\assets\images\Hibiscus.png'); 
-  position: absolute;
-  left: calc(50% + 414px);
-  top: 2em;
-  animation: rotation 10s linear infinite; 
-}
-
-/*turning flowers end */
 
 
 .story {

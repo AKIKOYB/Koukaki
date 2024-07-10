@@ -32,10 +32,8 @@ get_header();
 
         <section id="place" class="place title_animate_1">
             <div class="cloud">
-            <img src="<?php echo get_theme_file_uri() . '/assets/images/big_cloud.png'; ?>" class="cloud big_cloud"
-                data-bottom-top="transform:translateX(0px);" data-center-center="transform:translateX(-700px);" alt="Big Cloud">
-            <img src="<?php echo get_theme_file_uri() . '/assets/images/little_cloud.png'; ?>" class="cloud little_cloud"
-                data-bottom-top="transform:translateX(0px);" data-center-center="transform:translateX(-800px);" alt="Little Cloud">
+            <img src="<?php echo get_theme_file_uri() . '/assets/images/big_cloud.png'; ?>" class="cloud big_cloud" alt="Big Cloud">
+            <img src="<?php echo get_theme_file_uri() . '/assets/images/little_cloud.png'; ?>" class="cloud little_cloud" alt="Little Cloud">
             </div>
             <div class="place_text_nuages">
                 <h3><span class="anim_title">Le Lieu</span></h3>

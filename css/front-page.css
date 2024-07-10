@@ -40,7 +40,11 @@
   .banner {
     min-height: 575px;
   }
+  .banner__background {
+    display: none; 
+  }
 }
+
 @media screen and (max-width: 1023px) {
   .banner__video {
     display: none;
@@ -355,21 +359,82 @@ h2 {
       position: absolute;
   }
 }
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  #place {
+    min-height: 575px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  #place {
+    background-image: url("../assets/images/place_bg.png")!important;
+  }
+#place .cloud {
+  display: none;
+}
+}
 
+@media (max-width: 950px) {
+#place { 
+  background-position: top;
+}
+#place .place_text_nuages{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 7%;
+  position: absolute;
+  }
+#place .place_text_nuages h3 {
+    /* Keep h3 on the background image */
+    position: absolute;
+    top: 20%;
+    margin: 0px;
+    /*left: 30%;
+    transform: translate(-50%, -50%);*/
+    z-index: 2;
+}
+#place .place_text_nuages p {
+    /* Put p below the background image */
+    position: relative;
+    margin-top: 410px; /* Adjust this value to fit your design */
+    margin-left: 20px;
+    padding-left: 0em;
+    z-index: 2;
+}
+#studio {
+  margin-top: 0em;
+}
+  /*#place .place_text_nuages {
+    width: 100%;
+    position: absolute;
+    top: 25%;
+  }
+  #place .place_text_nuages p {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 20px; /* Add some margin to create space below the background image 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }*/
+}
+/*'.'.'i have to remove text and put it below.'.'.'.
 @media (max-width: 950px) {
   #place .place_text_nuages {
       width: 100%;
       top: 25%;
       position: absolute;
   }
-}
+}/*'.'.'i have to remove text and put it below.'.'.'.*/
+
 
 /*'.'.'.'.'.'.*/
 /*   STUDIO  Studio Koukaki */
 /*'.'.'.'.'.'.*/
 #studio {
   position:  relative;
-  margin-top: 17em;
+  margin-top: 5em;
   z-index: 1;
 }
 #studio h2 {
@@ -442,8 +507,9 @@ h2 {
   line-height: 52.5px;
   letter-spacing: -0.02em;
   text-align: left;
-  align-items: flex-start;
-  width: 45%;
+  align-items: center;
+  width: 60%;
+  align-content: center;
 }
 #oscars img {
   background-color: #FFF5E9;
@@ -463,14 +529,12 @@ h2 {
     left: calc(40% + 414px);
    /* top: 2em;*/
   }
-  #place .place_text_nuages p {
-  
-  }
+
   #oscars {
     flex-direction: column;
     }
   #oscars h3 {
-    width: 80%;
+    width: auto;
     font-size: 2em;
   }
   #oscars h3::before {
@@ -497,7 +561,7 @@ h2 {
   flex-direction: column;
   }
   #oscars h3 {
-    width: 90%;
+    width: auto;
     font-size: 2em;
   }
 }
@@ -525,6 +589,7 @@ h2 {
     margin: auto;
     width: 75%;
   }
+  
   #studio h2::after {
     content: "";
   }
@@ -544,11 +609,29 @@ h2 {
   content: "";
   }
   #oscars h3 {
+    width: 70%;
+    font-size: 2em;
+  }
+}
+@media all and (max-width: 790px) {
+  #studio h2{
+    font-size: 3.829rem;
+    }
+  #oscars h3 {
     width: 80%;
     font-size: 2em;
   }
 }
+
 @media all and (max-width: 700px) {
+  .characters h3 {
+    margin: 0px;
+    font-size: 2em;
+    width: 100%;
+  }
+  #place .place_text_nuages {
+  top: -10%;
+  }
   #studio h2 {
   font-size: 3.429rem;
   }
@@ -566,7 +649,7 @@ h2 {
     content: "";
   }
   #oscars h3 {
-    width: 80%;
+    width: 100%;
     font-size: 2em;
   }
 }
@@ -575,15 +658,146 @@ h2 {
 /*'.'.'.'.'.'.'.'.'*/
 /*   BURGER MENU   */
 /*'.'.'.'.'.'.'.'.'*/
+
+/*new try nadeche*/
+.main-navigation {
+  z-index: 1000;
+  background-color: #FFD5A2;
+  display: flex;
+  justify-content: center; 
+  align-items: flex-end;
+  padding: 0 20px; /* Add padding to ensure elements don't touch the edges */
+  width: 100%;
+}
+.main-navigation .site-title {
+  display: flex;
+  margin: 0;
+  line-height: 50px;
+  /*flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center; 
+  /*padding-left: 200px;
+  padding-top: 35px;*/
+}
+.main-navigation button {
+  border: 0;
+  background-color: transparent;
+  margin: auto;
+}
+.main-navigation .line {
+  height: 3px;
+  background-color: #000;
+  display: block;
+  margin: auto;
+  margin-block: 2px;
+  width: 20px;
+}
+.main-navigation ul {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding-left: 20px;
+}
+.main-navigation ul .site-title {
+  display: none;
+}
+.main-navigation li {
+  position: relative;
+  font-size: 14px;
+}
+.main-navigation a {
+  display: block;
+  text-decoration: none;
+}
+.main-navigation .site-title {
+  font-family: "Quicksand", sans-serif;
+  font-size: 21.5px;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+  display: block;
+}
+
+@media screen and (min-width: 700px) {
+  .menu-toggle {
+    display: none;
+  }
+  .main-navigation {
+    height: 90px;
+    padding: 0px;
+  }
+  .main-navigation ul {
+    display: flex;
+    margin: 0;
+    padding-left: 0;
+  }
+  .main-navigation ul .site-title {
+    display: block;
+  }
+}
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+  margin: 0 0 1.5em;
+}
+.comment-navigation .nav-links,
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+  display: flex;
+}
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+  flex: 1 0 50%;
+}
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+  text-align: end;
+  flex: 1 0 50%;
+}
+/*keep
 .main-navigation {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   align-content: center;
   align-items: center;
   height: 50px;
   position: relative;
+  padding-left: 35px;
+}*/
+/*.main-navigation {
+  display: flex; 
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end; 
+  height: 50px;
+  padding: 0 1em;
+  position: relative;
+}*/
+/*keep
+.main-navigation button {
+  border: 0;
+  background-color: transparent;
+  margin-left: 400px;
 }
+.menu-toggle {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}*/
+
+/*
 .main-navigation .site-title {
   width: 100%;
   height: 100%;
@@ -594,7 +808,42 @@ h2 {
   position:absolute;
   }
 .main-navigation .site-title a {
+  display: inline-block; 
+  vertical-align: middle;
+  line-height: 50px; 
+}
+/*
+.main-navigation .site-title a {
   margin-left: 7em;
+}
+.menu-toggle {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+*/
+@media screen and (max-width: 700px) {
+  .main-navigation {
+      height: 90px;
+      padding: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block; /* Show the burger menu on small screens */
+  }
+}
+@media screen and (max-width: 500px) {
+  .main-navigation {
+      height: 90px;
+      padding: 0px;
+      display: flex;
+      justify-content: space-around
+  }
+  .main-navigation #icons {
+    margin-right: 1em;
+  }
 }
 .main-navigation .burger-menu {
   position: relative;
@@ -804,19 +1053,25 @@ h2 {
 }
 .main-navigation #icons {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 40px;
-  height: 60px;
-  margin-right: 8em;
-  position: relative;
+  height: 80px;
+  margin-right: 2em;
+ position: absolute;
+  right: 0;
+  align-items: flex-end
 }
 .main-navigation #icons::before {
   content: "☰";
   font-size: 3em;
+  padding-top: 50px;
+  vertical-align: baseline;
+  position: relative;
 }
 
 .open .burger-menu ul {
   background-color: #fff5e9;
+  width: 100%;
   top: 79px;
   opacity: 1;
   transition-duration: 0.6s;
