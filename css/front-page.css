@@ -199,34 +199,54 @@ h2 {
 .oscars h3 span.reveal {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 1.6s ease, transform 1.6s ease;
 }
 /* Initial styles for animating elements */
-.anim_title,
-.anim_article {
+.anim_title{
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease 0.8s, transform 0.6s  ease 0.8s;
+    transition: opacity 1.6s ease 1.8s, transform 1.6s  ease 1.8s;
 }
 .anim_title.slow {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.9s ease;
+  transition: opacity 1.6s ease, transform 1.9s ease;
 }
 
 
-/* Class to reveal elements when they are in view */
-.anim_title.reveal,
-.anim_article.reveal {
+/* i can delate, Class to reveal elements when they are in view 
+.anim_title.reveal {
     opacity: 1;
     transform: translateY(0);
+}*/
+
+/* new! add Fade-in animation for sections 
+.anim_section {
+  opacity: 0;
+  transform: translateY(10%);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Animation for articles */
+.anim_section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fade_in_article_animate {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}*/
+/* Fade-in animation for articles */
 .anim_article {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 1.9s ease-out, transform 1.9s ease-out;
 }
 
 .anim_article.visible {
@@ -236,7 +256,7 @@ h2 {
 
 .fade-in {
   opacity: 1;
-  transition: opacity 0.6s ease-in-out;
+  transition: opacity 1.9s ease-in-out;
 }
 
 

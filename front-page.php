@@ -4,16 +4,17 @@ get_header();
 
     <main id="primary" class="site-main">
         <section class="banner">
+            <!-- adding logo -->
             <img class="banner__logo hidden" src="<?php echo  get_theme_file_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
-            <!-- Récupération de l'image de background, désactivée dans le CSS -->
+            <!-- adding background image -->
             <img class="banner__background move-down hidden" src="<?php echo get_theme_file_uri() . '/assets/images/banner.png'; ?>" alt="Arrière plan de couleur orange, avec des images de type cartoon de chats et de fleurs.">
-            <!-- Ajout de la vidéo -->
+            <!-- adding video -->
             <video class="banner__video move-down hidden" autoplay loop muted>
                 <source src="<?php echo get_theme_file_uri() . '/assets/video/banner-video.mp4'; ?>">
             </video>
         </section>
 
-        <section id="story" class="story anim_article"><!-- new add anim_article -->
+        <section id="story" class="story">
         <h2><span class="anim_title">L'histoire</span></h2>
             <article class="story__article">
                 <p class="anim_article article_animate"><?php echo get_theme_mod('story'); ?></p>
@@ -30,7 +31,7 @@ get_header();
             </div>
         </section>
 
-        <section id="place" class="place title_animate_1"><!-- must keep title_animate_1-->
+        <section id="place" class="place title_animate_1"><!-- must keep title_animate_1 for little cloud-->
             <div class="cloud">
             <img src="<?php echo get_theme_file_uri() . '/assets/images/big_cloud.png'; ?>" class="cloud big_cloud" alt="Big Cloud">
             <img src="<?php echo get_theme_file_uri() . '/assets/images/little_cloud.png'; ?>" class="cloud little_cloud" alt="Little Cloud">
