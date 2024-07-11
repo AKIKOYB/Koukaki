@@ -76,5 +76,33 @@
     <script> // Initialize skrollr
       var s = skrollr.init();
     </script>
+
+    <!-- new start, Intersection Observer for fade-in effect -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const articles = document.querySelectorAll('.anim_article');
+
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const handleIntersection = (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, options);
+
+        articles.forEach(article => {
+          observer.observe(article);
+        });
+      });
+    </script>
 </body>
 </html>

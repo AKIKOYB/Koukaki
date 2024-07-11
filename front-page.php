@@ -13,7 +13,7 @@ get_header();
             </video>
         </section>
 
-        <section id="story" class="story">
+        <section id="story" class="story anim_article"><!-- new add anim_article -->
         <h2><span class="anim_title">L'histoire</span></h2>
             <article class="story__article">
                 <p class="anim_article article_animate"><?php echo get_theme_mod('story'); ?></p>
@@ -30,7 +30,7 @@ get_header();
             </div>
         </section>
 
-        <section id="place" class="place title_animate_1">
+        <section id="place" class="place title_animate_1"><!-- must keep title_animate_1-->
             <div class="cloud">
             <img src="<?php echo get_theme_file_uri() . '/assets/images/big_cloud.png'; ?>" class="cloud big_cloud" alt="Big Cloud">
             <img src="<?php echo get_theme_file_uri() . '/assets/images/little_cloud.png'; ?>" class="cloud little_cloud" alt="Little Cloud">
