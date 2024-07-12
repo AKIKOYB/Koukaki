@@ -3,7 +3,7 @@ get_header();
 ?>
 
     <main id="primary" class="site-main">
-
+    
         <section class="banner">
             <!-- adding logo -->
             <img class="banner__logo hidden" src="<?php echo  get_theme_file_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">

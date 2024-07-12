@@ -1,5 +1,6 @@
-@charset "UTF-8";
 /* CSS FOR front-page.php */
+
+@charset "UTF-8";
 
 /*'.'.'.'.'.'.*/
 /*  BANNER   */
@@ -229,7 +230,7 @@ h2 {
   position: static;
   z-index: 0; 
 }
-/* rotation animation for all flowers, story and studio*/
+/* rotation animation for all flowers, menu, story and studio*/
 @keyframes rotation {
   from {
       transform: rotate(0deg);
@@ -250,7 +251,7 @@ h2 {
   position: absolute;
   left: 0;
   top: 1.8em;
-  z-index: -1;
+  z-index: 0;
 }
 .story h2::after {
   content: url('../assets/images/Sunflower.png');
@@ -258,7 +259,7 @@ h2 {
   left: 0.7em;
   top: 6em;
   animation: rotation 10s linear infinite;
-  z-index: -1;
+  z-index: 0;
 }
 
 .story__article {
@@ -277,7 +278,7 @@ h2 {
   position: absolute;
   left: 50%;
   top: -4em;
-  z-index: -1;
+  z-index: 0;
 }
 .story__article::after {
   content: url("../assets/images/Hibiscus.png");
@@ -285,7 +286,7 @@ h2 {
   left: calc(50% + 414px);
   top: -8em;
   animation: rotation 10s linear infinite; 
-  z-index: -1; 
+  z-index: 0; 
 }
 
 
@@ -302,9 +303,10 @@ h2 {
 .characters h3 {
   background-image: url("../assets/images/orange_characters_bg.png"); 
   margin-right: auto;
+  padding: 1em;
 }
 .characters div {
-  flex: none; /*it was 1, images are smaller and 5 of them are visible*/
+  flex: none; /*it was 1, images are smaller and 5 of them are visible.*/
   display: flex;
   justify-content: center; 
   width: 100%;
@@ -464,6 +466,7 @@ h2 {
   position:  relative;
   margin-top: 5em;
   z-index: 1;
+  width: 100%; /*new!try for max width1440*/
 }
 #studio h2 {
   overflow: hidden;
@@ -653,6 +656,8 @@ h2 {
     margin: 0px;
     font-size: 2em;
     width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   #place .place_text_nuages {
     top: -10%;

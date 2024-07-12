@@ -10,6 +10,32 @@
 
 @import url('css/front-page.css');
 
+#primary,
+.site-main,
+.post,
+.page {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+  overflow-x: hidden;
+}
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+body > * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+img, iframe, video {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
 /* CSS FOR header.php */
 
 /*'.'.'.'.'.'.'.'.'*/
@@ -149,7 +175,8 @@
   position: relative;
 }
 .main-navigation .burger-menu ul {
-  min-width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -161,6 +188,7 @@
   opacity: 0;
   transition-duration: 0.6s;
   overflow: hidden;
+  z-index: 1000;
 }
 .main-navigation .burger-menu ul img {
   width: 10%;
@@ -169,6 +197,7 @@
   top: 3em;
   padding-bottom: 4em;
   animation: cat-float 10s 0.3s infinite ease-in-out;
+  z-index: 1001;
 }
 .main-navigation .burger-menu ul li {
   padding-top: 1.5%;
@@ -192,10 +221,11 @@
   display: block;
   width: 173px;
   height: 173px;
-  background-image: url("../assets/images/orchid.png");
+  background-image: url("assets/images/orchid.png");
   background-size: contain;
   background-repeat: no-repeat;
   animation: rotation 10s linear infinite;
+  z-index: 1001;
 }
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
   .main-navigation .burger-menu ul li.burger-menu__story::before {
@@ -211,9 +241,10 @@
   display: block;
   width: 155px;
   height: 155px;
-  background-image: url("../assets/images/Sunflower.png");
+  background-image: url("assets/images/Sunflower.png");
   background-size: contain;
   animation: rotation 10s linear infinite;
+  z-index: 1001;
 }
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
   .main-navigation .burger-menu ul li.burger-menu__story::after {
@@ -228,10 +259,11 @@
   top: -2em;
   width: 109px;
   height: 99px;
-  background-image: url("../assets/images/menu_bluecat.png");
+  background-image: url("assets/images/menu_bluecat.png");
   background-size: contain;
   background-repeat: no-repeat;
   animation: cat-float 6s 0.3s infinite ease-in-out;
+  z-index: 1001;
 }
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
   .main-navigation .burger-menu ul li.burger-menu__characters::before {
@@ -247,9 +279,10 @@
   left: 17em;
   top: 1em;
   display: block;
-  background-image: url("../assets/images/random_flower.png");
+  background-image: url("assets/images/random_flower.png");
   background-size: contain;
   animation: rotation 10s linear infinite;
+  z-index: 1001;
 }
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
   .main-navigation .burger-menu ul li.burger-menu__characters::after {
@@ -266,9 +299,10 @@
   display: block;
   width: 71px;
   height: 71px;
-  background-image: url("../assets/images/menu_flower.png");
+  background-image: url("assets/images/menu_flower.png");
   background-size: contain;
   animation: rotation 10s linear infinite;
+  z-index: 1001;
 }
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
   .main-navigation .burger-menu ul li.burger-menu__place::before {
@@ -283,10 +317,11 @@
   top: 0;
   width: 124px;
   height: 112px;
-  background-image: url("../assets/images/menu_blackcat.png");
+  background-image: url("assets/images/menu_blackcat.png");
   background-size: contain;
   background-repeat: no-repeat;
   animation: cat-float 8s 0.3s infinite ease-in-out;
+  z-index: 1001;
 }
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
   .main-navigation .burger-menu ul li.burger-menu__place::after {
@@ -305,10 +340,11 @@
   top: 2em;
   width: 100px;
   height: 89px;
-  background-image: url("../assets/images/menu_orangecat.png");
+  background-image: url("assets/images/menu_orangecat.png");
   background-size: contain;
   background-repeat: no-repeat;
   animation: cat-float 8s 0.3s infinite ease-in-out;
+  z-index: 1001;
 }
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
   .main-navigation .burger-menu ul li.burger-menu__footer::before {
@@ -325,9 +361,10 @@
   display: block;
   width: 646px;
   height: 646px;
-  background-image: url("../assets/images/hibiscus_footer.png");
+  background-image: url("assets/images/hibiscus_footer.png");
   background-size: contain;
   animation: rotation 10s linear infinite;
+  z-index: 1001;
 }
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
   .main-navigation .burger-menu ul li.burger-menu__footer::after {
@@ -381,7 +418,7 @@
 @media screen and (max-width: 1023px) {
   .open .burger-menu ul li::before,
   .open .burger-menu ul li::after {
-    display: none !important;
+    display: none;
   }
 }
 .open #icons::before {
