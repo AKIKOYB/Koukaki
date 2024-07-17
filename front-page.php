@@ -52,9 +52,9 @@ get_header();
             // Intersection Observer for animating titles and articles
             document.addEventListener('DOMContentLoaded', function () {
                 const observerOptions = {
-                    root: null,
+                    root: null, // using viewport as target 
                     rootMargin: '0px',
-                    threshold: 0.1
+                    threshold: 0.1 //trigger when 10% of the element is visible in the viewport
                 };
 
                 const observer = new IntersectionObserver((entries, observer) => {

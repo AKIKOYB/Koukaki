@@ -7,7 +7,7 @@
  Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
  Version: 0.1
  */
-
+@charset "UTF-8";
 @import url('css/front-page.css');
 
 #primary,
@@ -24,6 +24,7 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   overflow-x: hidden;
+  overflow-y: auto; /* Allow vertical scrolling if needed */
 }
 
 body > * {
@@ -69,14 +70,14 @@ img, iframe, video {
   background-color: transparent;
   margin: auto;
 }
-.main-navigation .line {
+/*.main-navigation .line {
   height: 3px;
   background-color: #000;
   display: block;
   margin: auto;
   margin-block: 2px;
   width: 20px;
-}
+}*/
 .main-navigation ul {
   height: 100%;
   display: flex;

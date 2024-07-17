@@ -12,13 +12,15 @@ $characters_query = new WP_Query($args);
 if ($characters_query->have_posts()) : ?>
 
 <div class="swiper-container mySwiper">  
-    <div class="swiper-wrapper">   
-        <?php while ($characters_query->have_posts()) : $characters_query->the_post(); ?>
+    <div class="swiper-wrapper">   <!--holding all slides and showing-->
+        <?php while ($characters_query->have_posts()) : $characters_query->the_post(); ?><!--PHPloop to display posts from $characters_query-->
             <div class="swiper-slide">
                 <?php if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail(); ?>
                 <?php endif; ?>
-                    <div class="swiper-slide-caption"><?php the_title(); ?></div>
+                    <div class="swiper-slide-caption">
+                        <?php the_title(); ?>
+                    </div> <!--post title, characters name-->
             </div>
         <?php endwhile; ?>
     </div>
